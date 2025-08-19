@@ -3,7 +3,7 @@ import { readFileSync } from "fs";
 import { fileURLToPath } from "url";
 import { dirname, resolve } from "path";
 import os from "os";
-import apiRoutes from "./api";
+import apiRoutes from "./api.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
