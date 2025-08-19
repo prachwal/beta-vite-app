@@ -2,7 +2,6 @@ import express from "express";
 import { readFileSync } from "fs";
 import { fileURLToPath } from "url";
 import { dirname, resolve } from "path";
-import os from "os";
 import apiRoutes from "./api";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -19,12 +18,12 @@ app.use(express.static("dist/client"));
 app.use(apiRoutes);
 
 // Legacy API routes for compatibility
-app.get("/api/hello", (req, res) => {
+app.get("/api/hello", (_req, res) => {
   res.json({ message: "Hello from TypeScript server! - Auto-reloaded!" });
 });
 
 // Catch-all handler: send back React's index.html file for client-side routing
-app.get("/", (req, res) => {
+app.get("/", (_req, res) => {
   const indexPath = resolve(__dirname, "../dist/client/index.html");
   try {
     const html = readFileSync(indexPath, "utf-8");
