@@ -26,13 +26,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
   showSystemOption = false,
   disabled = false,
 }) => {
-  const {
-    t,
-    language,
-    languages,
-    changeLanguage,
-    setBrowserLanguage: contextSetBrowserLanguage,
-  } = useI18n();
+  const { t, language, languages, changeLanguage } = useI18n();
   const { isDark } = useTheme();
   const dispatch = useDispatch();
   const languageSource = useSelector(
